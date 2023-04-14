@@ -6,28 +6,40 @@ export default function BlackSquare() {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    const changeColor = () => {
-      setCount((c) => c + 1);
+    const increamentCount = () => {
+      let array = [];
+      arr.forEach((item) => {
+        let obj = {};
+        obj["id"] = item.id;
+        if (item.id < count) {
+          obj["color"] = "white";
+        } else {
+          obj["color"] = "black";
+        }
+        array.push(obj);
+      });
+      setCount((c) => (c < 60 ? c + 1 : 0));
+      setArr(array);
     };
-    const intervalId = setInterval(changeColor, 1000);
+    const intervalId = setInterval(increamentCount, 1000);
     return () => clearInterval(intervalId);
-  }, []);
-
-  useEffect(() => {
-    console.log("count", count);
-    let array = [];
-    arr.forEach((item) => {
-      let obj = {};
-      obj["id"] = item.id;
-      if (item.id < count) {
-        obj["color"] = "white";
-      } else {
-        obj["color"] = "black";
-      }
-      array.push(obj);
-    });
-    setArr(array);
   }, [count]);
+
+  // useEffect(() => {
+  //   let array = [];
+  //   arr.forEach((item) => {
+  //     let obj = {};
+  //     obj["id"] = item.id;
+  //     if (item.id < count) {
+  //       obj["color"] = "white";
+  //     } else {
+  //       obj["color"] = "black";
+  //     }
+  //     array.push(obj);
+  //   });
+  //   setArr(array);
+  // }, [count]);
+
   return (
     <div className="wrapper">
       {arr.map((item) => {
