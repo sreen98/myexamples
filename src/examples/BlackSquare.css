@@ -6,7 +6,3 @@
   grid-auto-rows: minmax(100px, auto);
   background-color: aquamarine;
 }
-.one {
-  grid-column: 1 /6;
-  grid-row: 1;
-}

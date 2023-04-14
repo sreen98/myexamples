@@ -22,7 +22,7 @@ export default function BlackSquare() {
   return (
     <div className="wrapper">
       {arr.map((item) => {
-        return <Box className="one" propColor={item.color} key={item.id} />;
+        return <Box propColor={item.color} key={item.id} />;
       })}
     </div>
   );
