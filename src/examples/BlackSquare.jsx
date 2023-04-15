@@ -2,7 +2,15 @@ import React, { useState, useEffect } from "react";
 import "./css/BlackSquare.css";
 
 export default function BlackSquare() {
-  const [arr, setArr] = useState(getArray());
+  const [arr, setArr] = useState(() => {
+    let array = [],
+      value = 1;
+    for (let i = 0; i < 60; i++) {
+      let obj = { id: value++, color: "black" };
+      array[i] = obj;
+    }
+    return array;
+  });
   const [count, setCount] = useState(0);
 
   useEffect(() => {
@@ -48,15 +56,7 @@ export default function BlackSquare() {
     </div>
   );
 }
-const getArray = () => {
-  let array = [],
-    value = 1;
-  for (let i = 0; i < 60; i++) {
-    let obj = { id: value++, color: "black" };
-    array[i] = obj;
-  }
-  return array;
-};
+
 const Box = ({ propColor }) => {
   return (
     <div
