@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./BlackSquare.css";
+import "./css/BlackSquare.css";
 
 export default function BlackSquare() {
   const [arr, setArr] = useState(getArray());
