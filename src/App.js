@@ -4,7 +4,7 @@ import LastToFirst from "./examples/LastToFirst";
 import UseReducerEx from "./examples/UseReducerEx";
 
 function App() {
-  return <UseReducerEx />;
+  return <BlackSquare />;
 }
 
 export default App;

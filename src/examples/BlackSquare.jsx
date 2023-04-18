@@ -3,10 +3,9 @@ import "./css/BlackSquare.css";
 
 export default function BlackSquare() {
   const [arr, setArr] = useState(() => {
-    let array = [],
-      value = 1;
+    let array = [];
     for (let i = 0; i < 60; i++) {
-      let obj = { id: value++, color: "black" };
+      let obj = { id: i, color: "black" };
       array[i] = obj;
     }
     return array;
@@ -19,12 +18,12 @@ export default function BlackSquare() {
       arr.forEach((item) => {
         let obj = {};
         obj["id"] = item.id;
-        if (item.id < count) {
+        if (item.id <= count) {
           obj["color"] = "white";
         } else {
           obj["color"] = "black";
         }
-        array.push(obj);
+        array[item.id] = obj;
       });
       setCount((c) => (c < 60 ? c + 1 : 0));
       setArr(array);
@@ -32,22 +31,6 @@ export default function BlackSquare() {
     const intervalId = setInterval(increamentCount, 1000);
     return () => clearInterval(intervalId);
   }, [count]);
-
-  // useEffect(() => {
-  //   let array = [];
-  //   arr.forEach((item) => {
-  //     let obj = {};
-  //     obj["id"] = item.id;
-  //     if (item.id < count) {
-  //       obj["color"] = "white";
-  //     } else {
-  //       obj["color"] = "black";
-  //     }
-  //     array.push(obj);
-  //   });
-  //   setArr(array);
-  // }, [count]);
-
   return (
     <div className="wrapper">
       {arr.map((item) => {
